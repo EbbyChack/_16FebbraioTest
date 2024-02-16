@@ -11,14 +11,16 @@ namespace _16FebbraioTest
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<HttpCookie> CartList = (List<HttpCookie>)Session["CartList"];
-            if (CartList != null)
+            if (!IsPostBack)
             {
-                string cartItemsHtml = "";
-
-                foreach (HttpCookie cookie in CartList)
+                List<HttpCookie> CartList = (List<HttpCookie>)Session["CartList"];
+                if (CartList != null)
                 {
-                    cartItemsHtml += $@" <div class='col-3'>
+                    string cartItemsHtml = "";
+
+                    foreach (HttpCookie cookie in CartList)
+                    {
+                        cartItemsHtml += $@" <div class='col-3'>
                                              <div class='card'>
                                                  <img class='card-img-top' src='{cookie["img"]}' alt='Card image cap'>
                                                  <div class='card-body'>
@@ -28,16 +30,19 @@ namespace _16FebbraioTest
                                                 </div>
                                              </div>
                                           </div>";
+                    }
+                    cartItems.InnerHtml = cartItemsHtml;
                 }
-                cartItems.InnerHtml = cartItemsHtml;
             }
+
         }
 
-       
+
 
         protected void DeleteButton_Click(object sender, EventArgs e)
         {
-            List<HttpCookie> CartList = (List<HttpCookie>)Session["CartList"];
+            Session.Remove("CartList");
+            Response.Redirect(Request.Url.AbsoluteUri);
 
         }
     }
