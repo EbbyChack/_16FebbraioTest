@@ -34,6 +34,9 @@ namespace _16FebbraioTest
                 CartList.Add(Request.Cookies[cookie]);
                 //per inserire la lista nella session
                 Session["CartList"] = CartList;
+
+                //ti porta sulla pagina del carello
+                Response.Redirect("Carrello.aspx");
             }
             else
             {
@@ -41,6 +44,8 @@ namespace _16FebbraioTest
                 CartList.Add(Request.Cookies[cookie]);
 
                 Session["CartList"] = CartList;
+
+                Response.Redirect("Carrello.aspx");
             }
 
 

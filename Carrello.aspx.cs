@@ -41,6 +41,7 @@ namespace _16FebbraioTest
 
         protected void DeleteButton_Click(object sender, EventArgs e)
         {
+            //rimuove la sessione e ricarica la pagina aggiornata
             Session.Remove("CartList");
             Response.Redirect(Request.Url.AbsoluteUri);
 
