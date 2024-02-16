@@ -28,7 +28,7 @@
                             <asp:Button class="btn btn-light" ID="Button2" runat="server" Text="Pagina dettagli" OnClick="Button2_Click" />
                         </div>
                     </div>
-                </div>
+                </div> 
                 <div class="col-3">
                     <div class="card">
                         <img class="card-img-top" src="https://medias.maisonsdumonde.com/image/upload/f_auto,q_auto,w_732/v1/img/tavolo-per-sala-da-pranzo-in-massello-di-legno-di-sheesham-180-cm-1000-2-7-140473_3.jpg" id="Img3" runat="server" alt="Card image cap">
